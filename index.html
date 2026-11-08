@@ -35,8 +35,9 @@
         <section class="section">
             <h2 class="section-title">Summary</h2>
             <div class="section-body">
-                <p>Senior Data Engineer with 4+ years of hands-on experience running large-scale production data platforms across Google Cloud (BigQuery) and AWS/Databricks. I currently lead a team of three that owns global CDC replication (Aurora PostgreSQL, AWS DMS and Debezium, S3, Databricks), delivering multi-terabyte daily data to internal and external clients under strict freshness SLOs, and I have also built the downstream ingestion layer.</p>
-                <p>My strengths are data quality and observability, Terraform-managed infrastructure, SQL and data modeling, and Airflow/dbt workflows. Earlier, I led a Teradata to BigQuery warehouse migration and built Airflow and dbt on Kubernetes from scratch. I hold an MSc in Computer Science with a peer-reviewed deep learning paper, and I use LLMs, AI agents and AI coding tools (Claude Code) daily, both at work and in my own side project. I work in English every day in a global team.</p>
+                <p>Senior Data Engineer with 4+ years of hands-on experience building and running production data pipelines, data models and data-quality processes on AWS/Databricks and Google Cloud (BigQuery).</p>
+                <p>I currently lead a team of three that owns global CDC replication from Aurora PostgreSQL into S3 and Databricks, delivering multi-terabyte daily data to internal and external clients under strict freshness SLOs. I have also built the downstream ingestion layer, and earlier led the dbt data modeling for a Teradata to BigQuery migration.</p>
+                <p>MSc in Computer Science with a peer-reviewed deep learning paper. I use LLMs, AI agents and Claude Code daily, at work and in my own side project, and I work in English every day in a global team.</p>
             </div>
         </section>
 
@@ -51,12 +52,13 @@
                     </div>
                     <p class="entry-org"><a href="https://kraken.tech/">Kraken Technologies Japan</a>, Tokyo. Lead of the Replication team.</p>
                     <ul class="bullets">
-                        <li>Lead a team of three data engineers that owns the AWS DMS replication layer: Aurora PostgreSQL CDC into S3 and Databricks across <strong>30+ client environments</strong> in the UK, EU, US and APAC, each running 4-10 pipelines and <strong>2,000+ tables</strong>, moving <strong>multiple terabytes per day</strong> against freshness SLOs from a 15-minute hard target to P99 within 90 minutes. Work daily with product managers and the ingestion, infrastructure and analytics teams</li>
+                        <li>Lead a team of three data engineers that owns the AWS DMS replication layer: Aurora PostgreSQL CDC into S3 and Databricks across <strong>30+ client environments</strong> in the UK, EU, US and APAC, each running 4-10 pipelines and <strong>2,000+ tables</strong>, moving <strong>multiple terabytes per day</strong></li>
+                        <li>Deliver against freshness SLOs from a 15-minute hard target on some environments to P99 within 90 minutes elsewhere, working daily with product managers and the ingestion, infrastructure and analytics teams</li>
                         <li>Designed and implemented a Terraform and Spacelift based replication system that manages every client's pipelines as code, so a pipeline can be added or removed without touching any other, and live state migrates without destroying resources</li>
-                        <li>Led and executed the migration of CDC replication from AWS DMS to Debezium</li>
+                        <li>Led the project to migrate CDC replication from AWS DMS to Debezium, building on an earlier proof of concept, until production implementation was handed over to a teammate</li>
                         <li>Designed the data-quality process for CDC output that cannot be trusted as delivered: a validation harness that mapped what DMS validation detects, misses and falsely flags across four classes of integrity defect, a safe-reload runbook, and the root cause of silent change loss at the full-load to CDC switch. Integrated observability and alerting in Datadog</li>
-                        <li>Cut DMS pipeline cost by <strong>30%</strong>, with further savings in the ingestion layer, and tuned performance from CPU, memory, throughput and CDC-specific metrics; drove a storage runaway on large TOAST/JSON tables with AWS Support to a vendor patch</li>
-                        <li>Earlier at Kraken, built the ingestion layer that turns CDC logs into SCD Type 2 tables on Databricks, optimized the Databricks clusters for those jobs, and orchestrated dbt models in Airflow</li>
+                        <li>Cut DMS pipeline cost by <strong>30%</strong> through per-job analysis of CPU and memory usage, with further savings in the ingestion layer; tuned performance using throughput and CDC-specific metrics, and drove a storage runaway on large TOAST/JSON tables with AWS Support to a vendor patch</li>
+                        <li>Earlier at Kraken, built the ingestion layer that turns CDC logs into SCD Type 2 tables on Databricks, ordered by replication sequence (LSN) and commit timestamp, optimized the Databricks clusters for those jobs, and orchestrated dbt models in Airflow</li>
                         <li>Designed and built a logging system that gathers logs from thousands of jobs across <strong>30+ AWS accounts</strong>, with dashboards and alerts that detect failing jobs for every client</li>
                     </ul>
                 </article>
@@ -68,9 +70,10 @@
                     </div>
                     <p class="entry-org"><a href="https://global.rakuten.com/corp/">Rakuten</a>, Tokyo</p>
                     <ul class="bullets">
-                        <li>Built batch ETL pipelines optimized for query performance and timely delivery, and ran Airflow operations for <strong>200+ DAGs</strong></li>
+                        <li>Led the dbt-based data modeling for the Data Warehouse migration from Teradata to BigQuery, working across teams</li>
+                        <li>Architected and implemented Airflow and dbt workflows on Kubernetes from scratch, and ran Airflow operations for <strong>200+ DAGs</strong> and batch ETL optimized for query performance</li>
                         <li>Created fault-tolerant streaming ETL processing <strong>100 million+ records daily</strong> with automatic recovery</li>
-                        <li>Maintained an automatically updated data catalog of <strong>2,000+ tables</strong> for the whole organization, and worked across teams to migrate the Data Warehouse from Teradata to BigQuery</li>
+                        <li>Maintained an automatically updated data catalog of <strong>2,000+ tables</strong> for the whole organization</li>
                     </ul>
                 </article>
 
@@ -91,7 +94,7 @@
                     <dd>Datadog, data-quality validation</dd>
                     <dt>Cloud</dt>
                     <dd>Google Cloud, AWS (DMS, Aurora PostgreSQL, S3)</dd>
-                    <dt>Languages</dt>
+                    <dt>Programming</dt>
                     <dd>SQL and data modeling, Python</dd>
                     <dt>AI</dt>
                     <dd>LLMs and AI agents, Claude Code (daily use)</dd>
@@ -115,18 +118,6 @@
                     </ul>
                 </article>
 
-                <article class="entry">
-                    <div class="entry-head">
-                        <h3 class="entry-title"><a href="https://dl.acm.org/doi/abs/10.1007/978-3-030-83527-9_28">Improving automated speech recognition performance</a></h3>
-                        <span class="entry-time">2020 - 2022</span>
-                    </div>
-                    <p class="entry-org">Nagoya University, Japan</p>
-                    <ul class="bullets">
-                        <li>Developed a deep learning model to enhance speech recognition results by integrating document-related information relevant to the speech content, resulting in significant improvements</li>
-                        <li>Authored a <a href="https://dl.acm.org/doi/abs/10.1007/978-3-030-83527-9_28">peer-reviewed paper</a> and delivered a presentation at an international conference</li>
-                    </ul>
-                </article>
-
             </div>
         </section>
 
@@ -135,6 +126,7 @@
             <div class="section-body">
                 <ul class="facts">
                     <li><strong>MSc in Computer Science</strong>, Nagoya University, Japan <span class="detail">(2020 - 2022)</span></li>
+                    <li>Research: <a href="https://dl.acm.org/doi/abs/10.1007/978-3-030-83527-9_28">Improving automated speech recognition performance</a>. Developed a deep learning model that uses document information related to the speech content to improve recognition; published as a peer-reviewed paper and presented at an international conference</li>
                 </ul>
             </div>
         </section>
