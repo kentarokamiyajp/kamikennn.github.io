@@ -57,8 +57,8 @@
                         <li>Designed and implemented a Terraform and Spacelift based replication system that manages every client's pipelines as code, so a pipeline can be added or removed without touching any other, and live state migrates without destroying resources</li>
                         <li>Led the project to migrate CDC replication from AWS DMS to Debezium, building on an earlier proof of concept, until production implementation was handed over to a teammate</li>
                         <li>Designed the data-quality process for CDC output that cannot be trusted as delivered: a validation harness that mapped what DMS validation detects, misses and falsely flags across four classes of integrity defect, a safe-reload runbook, and the root cause of silent change loss at the full-load to CDC switch. Integrated observability and alerting in Datadog</li>
-                        <li>Cut DMS pipeline cost by <strong>30%</strong> through per-job analysis of CPU and memory usage, with further savings in the ingestion layer; tuned performance using throughput and CDC-specific metrics, and drove a storage runaway on large TOAST/JSON tables with AWS Support to a vendor patch</li>
-                        <li>Earlier at Kraken, built the ingestion layer that turns CDC logs into SCD Type 2 tables on Databricks, ordered by replication sequence (LSN) and commit timestamp, optimized the Databricks clusters for those jobs, and orchestrated dbt models in Airflow</li>
+                        <li>Cut yearly DMS pipeline cost by <strong>30%</strong> through per-job analysis of CPU and memory usage, with further savings in the ingestion layer; tuned performance using throughput and CDC-specific metrics, and drove a storage runaway on large TOAST/JSON tables with AWS Support to a vendor patch</li>
+                        <li>Earlier at Kraken, built the ingestion layer that turns CDC logs into SCD Type 2 tables on Databricks, with valid-from and valid-to columns and an is_deleted flag, and commit timestamp and LSN fields to keep ordering and referential integrity; optimized the Databricks clusters for those jobs and orchestrated dbt models in Airflow</li>
                         <li>Designed and built a logging system that gathers logs from thousands of jobs across <strong>30+ AWS accounts</strong>, with dashboards and alerts that detect failing jobs for every client</li>
                     </ul>
                 </article>
@@ -70,7 +70,7 @@
                     </div>
                     <p class="entry-org"><a href="https://global.rakuten.com/corp/">Rakuten</a>, Tokyo</p>
                     <ul class="bullets">
-                        <li>Led the dbt-based data modeling for the Data Warehouse migration from Teradata to BigQuery, working across teams</li>
+                        <li>Led the dbt-based data modeling for the Data Warehouse migration from Teradata to BigQuery, part of moving the many Hive-to-Teradata ETL jobs over to BigQuery, working across teams</li>
                         <li>Architected and implemented Airflow and dbt workflows on Kubernetes from scratch, and ran Airflow operations for <strong>200+ DAGs</strong> and batch ETL optimized for query performance</li>
                         <li>Created fault-tolerant streaming ETL processing <strong>100 million+ records daily</strong> with automatic recovery</li>
                         <li>Maintained an automatically updated data catalog of <strong>2,000+ tables</strong> for the whole organization</li>
