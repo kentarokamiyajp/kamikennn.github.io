@@ -1,0 +1,231 @@
+/* Kentaro Kamiya CV - single-column layout with a section-label gutter.
+   Layout and styles are original; the page was first based on the Orbit
+   template by Xiaoying Riley (credited in the footer). */
+
+:root {
+  --page: #eef1f4;
+  --paper: #ffffff;
+  --ink: #16212b;
+  --muted: #5a6874;
+  --rule: #d9e0e6;
+  --accent: #12607f;
+  --accent-soft: #e6f1f6;
+  --gutter: 9.5rem;
+  --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-underline-offset: 0.18em;
+}
+a:hover { text-decoration-color: var(--accent); }
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.sheet {
+  max-width: 56rem;
+  margin: 2.5rem auto;
+  padding: 3.5rem 3.5rem 2.5rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+
+/* ---------- Header ---------- */
+.masthead { margin-bottom: 2.75rem; }
+
+.name {
+  margin: 0;
+  font-size: 3.1rem;
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.role {
+  margin: 0.5rem 0 1.25rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.93rem;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  display: grid;
+  grid-template-columns: var(--gutter) minmax(0, 1fr);
+  column-gap: 1.5rem;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--accent);
+}
+
+.section-body > :first-child { margin-top: 0; }
+.section-body > :last-child { margin-bottom: 0; }
+
+.section p { margin: 0 0 0.75rem; }
+
+/* ---------- Entries (experience, projects) ---------- */
+.entry {
+  position: relative;
+  padding-left: 1.4rem;
+  padding-bottom: 1.75rem;
+  border-left: 1px solid var(--rule);
+}
+.entry:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0.5em;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--accent);
+}
+.entry.is-current::before { background: var(--accent); }
+
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 1rem;
+}
+.entry-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.entry-time {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.entry-org {
+  margin: 0.1rem 0 0.6rem;
+  color: var(--muted);
+}
+
+.bullets {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.bullets li {
+  margin-bottom: 0.45rem;
+  padding-left: 0.15rem;
+}
+.bullets li::marker { color: var(--accent); }
+.bullets li:last-child { margin-bottom: 0; }
+.bullets strong { font-weight: 600; }
+
+/* ---------- Skills ---------- */
+.skills {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 0.5rem 1rem;
+  margin: 0;
+}
+.skills dt { font-weight: 600; }
+.skills dd { margin: 0; }
+
+/* ---------- Plain lists ---------- */
+.facts { margin: 0; padding: 0; list-style: none; }
+.facts li { margin-bottom: 0.35rem; }
+.facts li:last-child { margin-bottom: 0; }
+.detail { color: var(--muted); }
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------- Narrow screens ---------- */
+@media (max-width: 760px) {
+  body { font-size: 15px; }
+  .sheet {
+    margin: 0;
+    padding: 2rem 1.25rem 1.5rem;
+    border: 0;
+    border-radius: 0;
+  }
+  .name { font-size: 2.4rem; }
+  .section { display: block; }
+  .section-title { margin-bottom: 0.75rem; }
+  .skills { grid-template-columns: 1fr; gap: 0; }
+  .skills dd { margin-bottom: 0.75rem; }
+  .entry-time { white-space: normal; }
+}
+
+/* ---------- Print / PDF ---------- */
+@page { size: A4; margin: 10mm 13mm; }
+
+@media print {
+  body { background: #fff; font-size: 9.2pt; line-height: 1.4; }
+  :root { --gutter: 7rem; }
+  .skills { grid-template-columns: 7rem minmax(0, 1fr); gap: 0.25rem 1rem; }
+  .bullets li { margin-bottom: 0.25rem; }
+  .entry-org { margin-bottom: 0.35rem; }
+  .role { margin-bottom: 0.7rem; }
+  .sheet {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+  }
+  .name { font-size: 26pt; }
+  .masthead { margin-bottom: 1rem; }
+  .section { padding-top: 0.7rem; margin-top: 0.7rem; }
+  .entry { break-inside: avoid; padding-bottom: 0.8rem; }
+  .entry::before { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: var(--ink); text-decoration: none; }
+  .footer { margin-top: 1.2rem; }
+}
