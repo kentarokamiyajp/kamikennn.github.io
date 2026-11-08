@@ -35,7 +35,7 @@
         <section class="section">
             <h2 class="section-title">Summary</h2>
             <div class="section-body">
-                <p>Senior Data Engineer with 4+ years of hands-on experience running large-scale production data platforms across Google Cloud (BigQuery) and AWS/Databricks. I currently operate global CDC replication and ingestion pipelines (Aurora PostgreSQL, AWS DMS, S3, Databricks) that deliver multi-terabyte daily data to internal and external clients under strict freshness SLOs, and share it through Delta Sharing and Iceberg.</p>
+                <p>Senior Data Engineer with 4+ years of hands-on experience running large-scale production data platforms across Google Cloud (BigQuery) and AWS/Databricks. I currently lead a team of three that owns global CDC replication (Aurora PostgreSQL, AWS DMS and Debezium, S3, Databricks), delivering multi-terabyte daily data to internal and external clients under strict freshness SLOs, and I have also built the downstream ingestion layer.</p>
                 <p>My strengths are data quality and observability, Terraform-managed infrastructure, SQL and data modeling, and Airflow/dbt workflows. Earlier, I led a Teradata to BigQuery warehouse migration and built Airflow and dbt on Kubernetes from scratch. I hold an MSc in Computer Science with a peer-reviewed deep learning paper, and I use LLMs, AI agents and AI coding tools (Claude Code) daily, both at work and in my own side project. I work in English every day in a global team.</p>
             </div>
         </section>
@@ -49,14 +49,15 @@
                         <h3 class="entry-title">Senior Data Engineer</h3>
                         <span class="entry-time">2024/07 - Present</span>
                     </div>
-                    <p class="entry-org"><a href="https://kraken.tech/">Kraken Technologies Japan</a>, Tokyo</p>
+                    <p class="entry-org"><a href="https://kraken.tech/">Kraken Technologies Japan</a>, Tokyo. Lead of the Replication team.</p>
                     <ul class="bullets">
-                        <li>Own CDC replication and ingestion from Aurora PostgreSQL into a Databricks lakehouse (AWS DMS, S3, Delta) across <strong>30+ client environments</strong> in the UK, EU, US and APAC, each running 4-10 pipelines and <strong>2,000+ tables</strong>, moving <strong>multiple terabytes per day</strong> against freshness SLOs from a 15-minute hard target to P99 within 90 minutes</li>
-                        <li>Built a validation harness on the production architecture that mapped what DMS data validation detects, misses and falsely flags across four classes of data-integrity defect; delivered a detection-capability matrix, a safe-reload runbook and the root cause of silent change loss at the full-load to CDC switch</li>
-                        <li>Cut DMS (bronze layer) pipeline cost by <strong>30%</strong>, with further savings in the ingestion (silver) layer</li>
-                        <li>Leading the design of a decoupled, versioned Terraform module so that pipelines can be added or removed independently of one another, and migrating live infrastructure state without destroying resources</li>
-                        <li>Diagnosed a replication-instance storage runaway on large TOAST/JSON tables and drove it with AWS Support to a vendor patch; also delivered PostgreSQL upgrade preparation and BigInt column migrations on production tables</li>
-                        <li>Share data with internal and external consumers through Delta Sharing and Iceberg, and collaborate with product managers, platform engineers and client-delivery teams in an asynchronous, English-speaking global team</li>
+                        <li>Lead a team of three data engineers that owns the AWS DMS replication layer: Aurora PostgreSQL CDC into S3 and Databricks across <strong>30+ client environments</strong> in the UK, EU, US and APAC, each running 4-10 pipelines and <strong>2,000+ tables</strong>, moving <strong>multiple terabytes per day</strong> against freshness SLOs from a 15-minute hard target to P99 within 90 minutes. Work daily with product managers and the ingestion, infrastructure and analytics teams</li>
+                        <li>Designed and implemented a Terraform and Spacelift based replication system that manages every client's pipelines as code, so a pipeline can be added or removed without touching any other, and live state migrates without destroying resources</li>
+                        <li>Led and executed the migration of CDC replication from AWS DMS to Debezium</li>
+                        <li>Designed the data-quality process for CDC output that cannot be trusted as delivered: a validation harness that mapped what DMS validation detects, misses and falsely flags across four classes of integrity defect, a safe-reload runbook, and the root cause of silent change loss at the full-load to CDC switch. Integrated observability and alerting in Datadog</li>
+                        <li>Cut DMS pipeline cost by <strong>30%</strong>, with further savings in the ingestion layer, and tuned performance from CPU, memory, throughput and CDC-specific metrics; drove a storage runaway on large TOAST/JSON tables with AWS Support to a vendor patch</li>
+                        <li>Earlier at Kraken, built the ingestion layer that turns CDC logs into SCD Type 2 tables on Databricks, optimized the Databricks clusters for those jobs, and orchestrated dbt models in Airflow</li>
+                        <li>Designed and built a logging system that gathers logs from thousands of jobs across <strong>30+ AWS accounts</strong>, with dashboards and alerts that detect failing jobs for every client</li>
                     </ul>
                 </article>
 
@@ -67,10 +68,9 @@
                     </div>
                     <p class="entry-org"><a href="https://global.rakuten.com/corp/">Rakuten</a>, Tokyo</p>
                     <ul class="bullets">
-                        <li>Developed batch ETL pipelines with a focus on optimizing query performance and ETL design to ensure timely data delivery to users, while also overseeing Airflow-managed operations for <strong>200+ DAGs</strong></li>
-                        <li>Created fault-tolerant ETL pipelines for streaming, processing over <strong>100 million records daily</strong>, and incorporating robust auto-recovery mechanisms</li>
-                        <li>Managed a comprehensive data catalog spanning <strong>2000+ tables</strong> to streamline data accessibility for the entire organization, and implemented an automated update feature for seamless maintenance</li>
-                        <li>Worked alongside cross-functional departments, teams, and individuals from various backgrounds to successfully transition the Data Warehouse from Teradata to BigQuery</li>
+                        <li>Built batch ETL pipelines optimized for query performance and timely delivery, and ran Airflow operations for <strong>200+ DAGs</strong></li>
+                        <li>Created fault-tolerant streaming ETL processing <strong>100 million+ records daily</strong> with automatic recovery</li>
+                        <li>Maintained an automatically updated data catalog of <strong>2,000+ tables</strong> for the whole organization, and worked across teams to migrate the Data Warehouse from Teradata to BigQuery</li>
                     </ul>
                 </article>
 
@@ -84,9 +84,11 @@
                     <dt>Data platforms</dt>
                     <dd>Databricks (Delta Lake, Delta Sharing), Iceberg, BigQuery, Teradata, Hive</dd>
                     <dt>Pipelines</dt>
-                    <dd>AWS DMS (CDC), Airflow, dbt, Kafka, Spark, Trino</dd>
+                    <dd>AWS DMS and Debezium (CDC), SCD Type 2, Airflow, dbt, Kafka, Spark, Trino</dd>
                     <dt>Infrastructure</dt>
-                    <dd>Terraform / OpenTofu, Docker, Kubernetes</dd>
+                    <dd>Terraform / OpenTofu, Spacelift, Docker, Kubernetes</dd>
+                    <dt>Observability</dt>
+                    <dd>Datadog, data-quality validation</dd>
                     <dt>Cloud</dt>
                     <dd>Google Cloud, AWS (DMS, Aurora PostgreSQL, S3)</dd>
                     <dt>Languages</dt>
@@ -120,9 +122,8 @@
                     </div>
                     <p class="entry-org">Personal</p>
                     <ul class="bullets">
-                        <li>Designed real-time ETL pipelines for ingesting cryptocurrency market data generated every millisecond, primarily using Apache Kafka and Spark Streaming for transformation</li>
-                        <li>Built a Data Warehouse within the Hadoop ecosystem, incorporating tools such as Apache Hive, Kafka, and Spark, and utilized Docker container systems to enable the analysis of time-series data</li>
-                        <li>Constructed real-time machine learning and deep learning models for cryptocurrency price prediction, utilizing TensorFlow and scikit-learn frameworks</li>
+                        <li>Designed real-time ETL for market data generated every millisecond with Kafka and Spark Streaming, and built a Hadoop-based data warehouse (Hive, Kafka, Spark, Docker) for time-series analysis</li>
+                        <li>Built real-time machine learning and deep learning price prediction models with TensorFlow and scikit-learn</li>
                     </ul>
                 </article>
 
