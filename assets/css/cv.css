@@ -175,7 +175,7 @@ a:focus-visible {
 .facts { margin: 0; padding: 0; list-style: none; }
 .facts li { margin-bottom: 0.35rem; }
 .facts li:last-child { margin-bottom: 0; }
-.facts .detail { color: var(--muted); }
+.detail { color: var(--muted); }
 
 /* ---------- Footer ---------- */
 .footer {
