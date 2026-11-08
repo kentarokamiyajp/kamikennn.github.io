@@ -1,149 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Kentaro.Kamiya</title>
-    
+    <title>Kentaro Kamiya - Senior Data Engineer</title>
+
     <!-- Meta -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kentaro.Kamiya">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <!-- Google Font -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <!-- FontAwesome JS-->
-	<script defer src="assets/fontawesome/js/all.min.js"></script>
-    <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
-    <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/orbit-1.css">
-</head> 
+    <meta name="description" content="Kentaro Kamiya - Senior Data Engineer. Production data pipelines, data quality and observability, Databricks, BigQuery, Terraform.">
+    <meta name="author" content="Kentaro Kamiya">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/cv.css">
+</head>
 
 <body>
-    <div class="wrapper mt-lg-5">
-        <div class="sidebar-wrapper">
-            <div class="profile-container">
-                <h1 class="name">Kentaro Kamiya</h1>
-                <h4 class="job-title">Data Engineer</h4>
-            </div><!--//profile-container-->
-            
-            <div class="contact-container container-block">
-                <ul class="list-unstyled contact-list">
-                    <li class="email"><i class="fa-solid fa-envelope"></i><a href="mailto: kentaro.kamiya.0425@gmail.com">kentaro.kamiya.0425<br>@gmail.com</a></li>
-                    <li class="phone"><i class="fa-solid fa-phone"></i><a href="tel:+81 80 4966 6487">+81 80 4966 6487</a></li>
-                    <li class="linkedin"><i class="fa-brands fa-linkedin-in"></i><a href="https://www.linkedin.com/in/kentaro-kamiya-jp/" target="_blank">kentaro-kamiya-jp</a></li>
-                    <li class="github"><i class="fa-brands fa-github"></i><a href="https://github.com/kentarokamiyajp" target="_blank">kentarokamiyajp</a></li>
-                    <li class="location"><i class="fa-solid fa-location-dot"></i><a href="#">Tokyo, Japan</a></li>
+    <main class="sheet">
+
+        <header class="masthead">
+            <h1 class="name">Kentaro Kamiya</h1>
+            <p class="role">Senior Data Engineer, Tokyo</p>
+            <ul class="contact">
+                <li><a href="mailto:kentaro.kamiya.0425@gmail.com">kentaro.kamiya.0425@gmail.com</a></li>
+                <li><a href="tel:+818049666487">+81 80 4966 6487</a></li>
+                <li><a href="https://www.linkedin.com/in/kentaro-kamiya-jp/" target="_blank" rel="noopener">linkedin.com/in/kentaro-kamiya-jp</a></li>
+                <li><a href="https://github.com/kentarokamiyajp" target="_blank" rel="noopener">github.com/kentarokamiyajp</a></li>
+            </ul>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Summary</h2>
+            <div class="section-body">
+                <p>Senior Data Engineer with 4+ years of hands-on experience running large-scale production data platforms across Google Cloud (BigQuery) and AWS/Databricks. I currently operate global CDC replication and ingestion pipelines (Aurora PostgreSQL, AWS DMS, S3, Databricks) that deliver multi-terabyte daily data to internal and external clients under strict freshness SLOs, and share it through Delta Sharing and Iceberg.</p>
+                <p>My strengths are data quality and observability, Terraform-managed infrastructure, SQL and data modeling, and Airflow/dbt workflows. Earlier, I led a Teradata to BigQuery warehouse migration and built Airflow and dbt on Kubernetes from scratch. I hold an MSc in Computer Science with a peer-reviewed deep learning paper, and I use LLMs, AI agents and AI coding tools (Claude Code) daily, both at work and in my own side project. I work in English every day in a global team.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="section-body">
+
+                <article class="entry is-current">
+                    <div class="entry-head">
+                        <h3 class="entry-title">Senior Data Engineer</h3>
+                        <span class="entry-time">2024/07 - Present</span>
+                    </div>
+                    <p class="entry-org"><a href="https://kraken.tech/">Kraken Technologies Japan</a>, Tokyo</p>
+                    <ul class="bullets">
+                        <li>Own CDC replication and ingestion from Aurora PostgreSQL into a Databricks lakehouse (AWS DMS, S3, Delta) across <strong>30+ client environments</strong> in the UK, EU, US and APAC, each running 4-10 pipelines and <strong>2,000+ tables</strong>, moving <strong>multiple terabytes per day</strong> against freshness SLOs from a 15-minute hard target to P99 within 90 minutes</li>
+                        <li>Built a validation harness on the production architecture that mapped what DMS data validation detects, misses and falsely flags across four classes of data-integrity defect; delivered a detection-capability matrix, a safe-reload runbook and the root cause of silent change loss at the full-load to CDC switch</li>
+                        <li>Cut DMS (bronze layer) pipeline cost by <strong>30%</strong>, with further savings in the ingestion (silver) layer</li>
+                        <li>Leading the design of a decoupled, versioned Terraform module so that pipelines can be added or removed independently of one another, and migrating live infrastructure state without destroying resources</li>
+                        <li>Diagnosed a replication-instance storage runaway on large TOAST/JSON tables and drove it with AWS Support to a vendor patch; also delivered PostgreSQL upgrade preparation and BigInt column migrations on production tables</li>
+                        <li>Share data with internal and external consumers through Delta Sharing and Iceberg, and collaborate with product managers, platform engineers and client-delivery teams in an asynchronous, English-speaking global team</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3 class="entry-title">Data Engineer</h3>
+                        <span class="entry-time">2022/02 - 2024/07</span>
+                    </div>
+                    <p class="entry-org"><a href="https://global.rakuten.com/corp/">Rakuten</a>, Tokyo</p>
+                    <ul class="bullets">
+                        <li>Developed batch ETL pipelines with a focus on optimizing query performance and ETL design to ensure timely data delivery to users, while also overseeing Airflow-managed operations for <strong>200+ DAGs</strong></li>
+                        <li>Created fault-tolerant ETL pipelines for streaming, processing over <strong>100 million records daily</strong>, and incorporating robust auto-recovery mechanisms</li>
+                        <li>Managed a comprehensive data catalog spanning <strong>2000+ tables</strong> to streamline data accessibility for the entire organization, and implemented an automated update feature for seamless maintenance</li>
+                        <li>Worked alongside cross-functional departments, teams, and individuals from various backgrounds to successfully transition the Data Warehouse from Teradata to BigQuery</li>
+                    </ul>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="section-body">
+                <dl class="skills">
+                    <dt>Data platforms</dt>
+                    <dd>Databricks (Delta Lake, Delta Sharing), Iceberg, BigQuery, Teradata, Hive</dd>
+                    <dt>Pipelines</dt>
+                    <dd>AWS DMS (CDC), Airflow, dbt, Kafka, Spark, Trino</dd>
+                    <dt>Infrastructure</dt>
+                    <dd>Terraform / OpenTofu, Docker, Kubernetes</dd>
+                    <dt>Cloud</dt>
+                    <dd>Google Cloud, AWS (DMS, Aurora PostgreSQL, S3)</dd>
+                    <dt>Languages</dt>
+                    <dd>SQL and data modeling, Python</dd>
+                    <dt>AI</dt>
+                    <dd>LLMs and AI agents, Claude Code (daily use)</dd>
+                </dl>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="section-body">
+
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3 class="entry-title"><a href="https://genosai.dev/home">Genos: AI-assisted project workspace</a></h3>
+                        <span class="entry-time">2025/01 - Present</span>
+                    </div>
+                    <p class="entry-org">Side project, public service</p>
+                    <ul class="bullets">
+                        <li>Built and operate a public web service for projects, tasks, notes and chat, with AI agents integrated into the product (scheduled AI assistants, AI-generated inbox reports and an MCP server for external AI clients)</li>
+                        <li>Added per-feature visibility of AI usage cost and one-click opt-out, treating LLM consumption as a first-class product metric</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3 class="entry-title"><a href="https://github.com/kamikennn/crypto_prediction_dwh">Crypto Realtime Price Prediction</a></h3>
+                        <span class="entry-time">2023/04 - Present</span>
+                    </div>
+                    <p class="entry-org">Personal</p>
+                    <ul class="bullets">
+                        <li>Designed real-time ETL pipelines for ingesting cryptocurrency market data generated every millisecond, primarily using Apache Kafka and Spark Streaming for transformation</li>
+                        <li>Built a Data Warehouse within the Hadoop ecosystem, incorporating tools such as Apache Hive, Kafka, and Spark, and utilized Docker container systems to enable the analysis of time-series data</li>
+                        <li>Constructed real-time machine learning and deep learning models for cryptocurrency price prediction, utilizing TensorFlow and scikit-learn frameworks</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-head">
+                        <h3 class="entry-title"><a href="https://dl.acm.org/doi/abs/10.1007/978-3-030-83527-9_28">Improving automated speech recognition performance</a></h3>
+                        <span class="entry-time">2020 - 2022</span>
+                    </div>
+                    <p class="entry-org">Nagoya University, Japan</p>
+                    <ul class="bullets">
+                        <li>Developed a deep learning model to enhance speech recognition results by integrating document-related information relevant to the speech content, resulting in significant improvements</li>
+                        <li>Authored a <a href="https://dl.acm.org/doi/abs/10.1007/978-3-030-83527-9_28">peer-reviewed paper</a> and delivered a presentation at an international conference</li>
+                    </ul>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="section-body">
+                <ul class="facts">
+                    <li><strong>MSc in Computer Science</strong>, Nagoya University, Japan <span class="detail">(2020 - 2022)</span></li>
                 </ul>
-            </div><!--//contact-container-->
+            </div>
+        </section>
 
-            <div class="education-container container-block">
-                <h2 class="container-block-title">Education</h2>
-                <div class="item">
-                    <h4 class="degree">MSc in Computer Science</h4>
-                    <h5 class="meta">Nagoya University, Japan</h5>
-	                    <div class="time">2020 - 2022</div>
-                </div><!--//item-->
-            </div><!--//education-container-->
-
-            <div class="education-container container-block">
-                <h2 class="container-block-title">Technologies</h2>
-                <div class="item">
-                    <h4 class="degree">&#8226; Python</h4>
-                    <h4 class="degree">&#8226; ETLs (Kafka, Spark, Trino, DBT)</h4>
-                    <h4 class="degree">&#8226; SQL (BigQuery, Teradata, Hive)</h4>
-                    <h4 class="degree">&#8226; Airflow</h4>
-                    <h4 class="degree">&#8226; Docker, Kubernetes</h4>
-                    <h4 class="degree">&#8226; Google Cloud</h4>
-                </div><!--//item-->
-            </div><!--//education-container-->
-            
-            <div class="languages-container container-block">
-                <h2 class="container-block-title">Languages</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>Japanese <span class="lang-desc">(Native)</span></li>
-                    <li>English <span class="lang-desc">(Professional)</span></li>
+        <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="section-body">
+                <ul class="facts">
+                    <li>Japanese <span class="detail">(Native)</span></li>
+                    <li>English <span class="detail">(Business, daily use in a global team)</span></li>
                 </ul>
-            </div><!--//interests-->
-            
-            <div class="interests-container container-block">
-                <h2 class="container-block-title">Interests</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>Baseball</li>
-                    <li>Anime&Movie</li>
-                    <li>Hiking</li>
-                </ul>
-            </div><!--//interests-->
-        </div><!--//sidebar-wrapper-->
-        
-        <div class="main-wrapper">
-            <section class="section experiences-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-magnifying-glass"></i></span>Career Summary</h2>
-                <div class="item">
-                    <p>Dedicated Data Engineer with over 2 years of hands-on experience. Proficient in building robust data pipelines for batch and streaming data, leveraging a range of ETL technologies including Kafka, Spark, Trino, DBT, and more. Notable achievements include spearheading a successful Data Warehouse migration from Teradata to BigQuery, as well as architecting and implementing Airflow and DBT workflows on Kubernetes from inception</p>
-                </div><!--//item-->
-            </section><!--//section-->
+            </div>
+        </section>
 
-            <section class="section experiences-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-briefcase"></i></span>Work Experiences</h2>
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Data Engineer</h3>
-                            <div class="time">2022/02 - Present</div>
-                        </div><!--//upper-row-->
-                        <div class="company"><a href="https://global.rakuten.com/corp/">Rakuten, Tokyo</a></div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>&#8226; Developed batch ETL pipelines with a focus on optimizing query performance and ETL design to ensure timely data delivery to users, while also overseeing Airflow-managed operations for 200+ DAGs</p>
-                        <p>&#8226; Created fault-tolerant ETL pipelines for streaming, processing over 100 million records daily, and incorporating robust auto-recovery mechanisms</p>
-                        <p>&#8226; Managed a comprehensive data catalog spanning 2000+ tables to streamline data accessibility for the entire organization, and implemented an automated update feature for seamless maintenance</p>
-                        <p>&#8226; Worked alongside cross-functional departments, teams, and individuals from various backgrounds to successfully transition the Data Warehouse from Teradata to BigQuery</p>
-                    </div><!--//details-->
-                </div><!--//item-->
-            </section><!--//section-->
-            
-            <section class="section projects-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-archive"></i></span>Projects</h2>
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title"><a href="https://github.com/kamikennn/crypto_prediction_dwh">Crypto Realtime Price Prediction</a></h3>
-                            <div class="time">2023/04 - Present</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Personal</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>&#8226; Designed real-time ETL pipelines for ingesting cryptocurrency market data generated every millisecond, primarily using Apache Kafka and Spark Streaming for transformation</p>
-                        <p>&#8226; Built a Data Warehouse within the Hadoop ecosystem, incorporating tools such as Apache Hive, Kafka, and Spark, and utilized Docker container systems to enable the analysis of time-series data<p>
-                        <p>&#8226; Constructed real-time machine learning and deep learning models for cryptocurrency price prediction, utilizing TensorFlow and scikit-learn frameworks</p>
-                    </div><!--//details-->
-                </div><!--//item-->
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title"><a href="https://dl.acm.org/doi/abs/10.1007/978-3-030-83527-9_28">Improving automated speech recognition performance</a></h3>
-                            <div class="time">2020 - 2022</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Nagoya University, Japan</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>&#8226; Developed a deep learning model to enhance speech recognition results by integrating document-related information relevant to the speech content, resulting in significant improvements</p>
-                        <p>&#8226; Authored a <a href="https://dl.acm.org/doi/abs/10.1007/978-3-030-83527-9_28">research thesis</a> and delivered a presentation at an international conference </p>
-                    </div><!--//details-->
-                </div><!--//item-->
-            </section><!--//section-->
-            
-        </div><!--//main-body-->
-    </div>
+        <section class="section">
+            <h2 class="section-title">Interests</h2>
+            <div class="section-body">
+                <p>Baseball, anime and movies, hiking</p>
+            </div>
+        </section>
 
-    <footer class="footer">
-        <div class="text-center">
-            <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designed with <i class="fa-solid fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-        </div><!--//container-->
-    </footer><!--//footer-->
-        
+        <footer class="footer">
+            <small>Layout originally based on the <a href="http://themes.3rdwavemedia.com" target="_blank" rel="noopener">Orbit template</a> by Xiaoying Riley</small>
+        </footer>
+
+    </main>
 </body>
-</html> 
-
+</html>
